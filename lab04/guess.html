@@ -1,1 +1,52 @@
-0000000
+<script> 
+    // สุ่มตัวเลขจำนวนเต็ม 0-99
+    rn = Math.floor(Math.random() * 100);
+    document.write(rn);
+    //alert("Hello World!");
+    x = 5;
+    y = 6;
+    // alert(x + "+" + y + "=" + (x + y));
+    // alert("5" + y);
+    // alert(x + "6");
+    // document.write("<h1>");
+    // document.write(x + "+" + y + "=" + (x + y));
+    // document.write("</h1>");
+
+    // for loop พิมพ์สูตรคูณ
+    // n = 2;
+    // for (i = 1; i <= 12; i++) {
+    //     document.write(n + "x" + i + "=" + (n * i));
+    //     document.write("<br>");
+    // }
+
+    div = document.getElementById('disp'); // error เพราะยังไม่มี element ที่ id = disp
+
+    function multi(n) {
+        div = document.getElementById('disp');
+        div.innerHTML = "";
+        for (i = 1; i <= 12; i++) {
+            div.innerHTML += n + "x" + i + "=" + (n * i) + "<br>";
+        }
+    }
+</script>
+
+<style>
+    * {
+        border: 1px dotted gray;
+    }
+</style>
+
+<input type="text" onkeyup="multi(this.value);">
+<!-- input type="text" onkeyup="getElementById('disp').innerHTML=this.value" -->
+<div id="disp">Default text</div>
+<button onclick="getElementById('disp').innerHTML='';">Clear div</button>
+
+
+
+
+
+
+
+
+
+</script> 
