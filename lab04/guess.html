@@ -1,21 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
 
 <script>
+
     rn = Math.floor(Math.random() * 10);
+
     document.write("มาเล่นทายตัวเลขกันเถอะครับ มีตัวเลขให้เลือกตั้งแต่ 0-9");
+
     document.write("<br>");
+
     document.write("ใส่ตัวเลขด้านล่างเลย"); 
+
     document.write("<br>");
 
-    document.write(rn);
 
-    function random(rn,number) {
-        if (number >> rn) { 
-            alert("มากไป")
-            document.write("เสียใจด้วย ตัวเลยมากไป"); 
+    function guess(n) {
+        n = document.getElementById('number').value
+
+        if(rn == n){
+            document.getElementById("disp").innerHTML = "ถูกต้องจ้า";
+            document.getElementById("hist").innerHTML += n+" ";
+
         }
-       
-    
+
+        else if (rn > n) {
+            document.getElementById("disp").innerHTML = "น้อยไปงับ";
+            document.getElementById("hist").innerHTML += n+" ";
+
+
+        }
+
+        else if (rn < n) {
+            document.getElementById("disp").innerHTML = "มากไปนะ";
+            document.getElementById("hist").innerHTML += n+" ";
+        }
+
+
+
+    function startover(){
+        rn = Math.floor(Math.random()*10);
+        div = document.getElementById('disp');
+        div.innerHTML = " ";
+        h = document.getElementById('hist');
+        h.innerHTML = " ";
+    }    
+
+
+
+
+
+
     }
+        
     
 </script>
 
@@ -24,13 +67,55 @@
 
 <br>
 
-    <input type= "number" placeholder="?" id ="number">
-    <button onclick="random(rn,number)">เริ่มเกมได้</button>
+    <input type="number" id="number">
+    <button onclick="guess(this.value);" id="number">Guess</button>
+    <div id="disp"></div>
+    <h id="hist"></h><br>
+    <button onclick="startover()">Start Over</button>
     
-    
-
-
 </br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
 
 
 
