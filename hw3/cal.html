@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>โปรแกรม เครื่องคิดเลข - cal.html</title>
+</head>
+<body>
+    <br>3.โปรแกรม เครื่องคิดเลข - cal.html</br>
+
+<script>
+    function Calculator(c,n1,n2) {
+
+        div = document.getElementById('disp');
+
+        if(c == "+"){
+            div.innerHTML = (n1*1) + (n2*1);
+        }
+        else if (c == "-"){
+            div.innerHTML = (n1-n2);
+        }
+        else if (c == "x"){
+            div.innerHTML = (n1*n2);
+        }
+        else if (c == "/"){
+            div.innerHTML = (n1/n2);
+        }
+
+
+        
+    }
+
+</script>
+
+</body>
+
+<input type="text" id ="Num1">
+<select name="Cal" id="Cal">
+    <option value="+" id="+">+</option>
+    <option value="-" id="-">-</option>
+    <option value="x" id="x">x</option>
+    <option value="/" id="/">/</option>
+</select>
+
+<input type="text" id ="Num2">
+<button onclick="Calculator(Cal.value,Num1.value,Num2.value)"> = </button><br>
+
+<div id="disp"></div>
+
+
+
+</html>
