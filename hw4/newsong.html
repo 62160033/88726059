@@ -5,38 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <script>
-    function addsong(){
-        ls = localStorage.getItem('songs');
-        if(ls === null){
-            songs = [];
-        }else{
-            songs = JSON.parse(ls);
-        }
-            data = [
-                namesong = document.getElementById('addsong').value,
-                artist = document.getElementById('artist').value,
-                lyrics = document.getElementById('lyrics').value
-            ];
-            songs.push(data);
+    songs = [];     //สร้างอาเรย์ songs 
+    addSong = [];   //สร้างอาเรย์ addSong เก็บชื่อเพลง ศิลปิน เนื้อร้อง
+    
+    function addSongFunc(n, a, l){      //ฟังก์ชั่นเพิ่มเพลง
         
-        console.log(songs);
-        
-        localStorage.setItem('songs',JSON.stringify(songs));
+        n = document.getElementById('addSongName').value    //ให้ตัวแปร อ้างถึงค่าที่รับมา ชื่อเพลง ศิลปิน เนื้อร้อง
+        a = document.getElementById('addArtist').value
+        l = document.getElementById('addLyrics').value
 
+        addSong = [n, a, l]     //นำตัวแปรเก็บในอาเรย์ addSong
+
+        songs.push(addSong);    //เอาอาเรย์ addSong ไปใส่ในอาเรย์ songs จะกล้ายเป็นอาเรย์ 2 มิติ
+
+        str = JSON.stringify(songs);    //แปลงอาเรย์ songs เป็นข้อความ
+
+        localStorage.setItem("songs", str);     //นำข้อความที่แปลงแล้วไปเก็บใน localStorage
     }
-        var songs = JSON.parse(localStorage.getItem("songs"))
-        if(songs == null){
-            localStorage.setItem("songs",songs)
-            songs = [];
-        }
-        
+    
 </script>
-
 <body>
-    <input type="text" class="form-control" placeholder="ชื่อเพลง" id="addsong"><br>
-    <input type="text" class="form-control" placeholder="ศิลปิน" id="artist"><br>
-    <textarea class="form-control" id="lyrics" placeholder="เนื้อเพลง" cols="30" rows="10"></textarea><br>
-    <button onclick="addsong();" class="btn btn-outline-success">Save</button><br>
+    <form>
+    <label>Add New Song</label>
+    <a href="searchsong.html">[ค้นหาเพลง]</a>
+    <table>
+        <tr>
+            <td><a><input type="text" placeholder="ชื่อเพลง" id="addSongName"></a></td>  
+        </tr>
+        <tr>
+            <td><a><input type="text" placeholder="ศิลปิน" id="addArtist"></a></td>
+        </tr>
+        <tr>
+            <td><a><textarea name="lyrics" cols="21" rows="15" placeholder="เนื้อร้อง" id="addLyrics"></textarea></a></td>
+        </tr>
+        <tr>
+            <td><button type="button" onclick="addSongFunc(this.value, this.value, this.value);" 
+                id="addSongName" id="addArtist" id="addLyrics">ADD</button>
+                <input type="reset" value="Clear"></td>
+        </tr>
+    </table>
+    </form>
 </body>
 </html>
